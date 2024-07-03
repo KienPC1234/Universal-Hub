@@ -65,7 +65,7 @@ GetPlayerPath()
 local Window = Rayfield:CreateWindow({
     Name = "Universal Hub",
     LoadingTitle = "Universal Hub",
-    LoadingSubtitle = "by KCD",
+    LoadingSubtitle = "by KCD Dev",
     ConfigurationSaving = {
        Enabled = true,
        FolderName = "Save", 
@@ -490,5 +490,11 @@ local ColorPicker55 = Tab3:CreateColorPicker({
     Name = "Save Setting",
     Callback = function()
         Rayfield:LoadConfiguration()
+        Rayfield:Notify({
+            Title = "INFO",
+            Content = "Data Saved!",
+            Duration = 6.5,
+            Image = 18315824167,
+         })
     end,
  })
