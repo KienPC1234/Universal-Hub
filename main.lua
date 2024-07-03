@@ -486,3 +486,9 @@ local ColorPicker55 = Tab3:CreateColorPicker({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source",true))()
     end,
  })
+ local Button4 = Tab4:CreateButton({
+    Name = "Save Setting",
+    Callback = function()
+        Rayfield:LoadConfiguration()
+    end,
+ })
