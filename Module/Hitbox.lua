@@ -1,5 +1,9 @@
 --load hitbox module
 _G.HitboxEnabled = false
+_G.HSize = 20
+_G.Size = 5
+_G.HitboxType = 1
+_G.Transparency = 0.7
 game:GetService('RunService').RenderStepped:connect(function()
     if _G.HitboxEnabled then
         for i,v in next, game:GetService('Players'):GetPlayers() do
