@@ -7,5 +7,5 @@ ___
 + Aim Bot
 + Admin CMD
 ## Paste this script into your Executor to use `Universal Hub`
-    line 1 of code
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/KienPC1234/Universal-Hub/main/main.lua"))()
 
