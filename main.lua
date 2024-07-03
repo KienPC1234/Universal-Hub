@@ -487,12 +487,12 @@ local ColorPicker55 = Tab3:CreateColorPicker({
     end,
  })
  local Button4 = Tab4:CreateButton({
-    Name = "Save Setting",
+    Name = "Load Setting",
     Callback = function()
         Rayfield:LoadConfiguration()
         Rayfield:Notify({
             Title = "INFO",
-            Content = "Data Saved!",
+            Content = "Data Loaded!",
             Duration = 6.5,
             Image = 18315824167,
          })
