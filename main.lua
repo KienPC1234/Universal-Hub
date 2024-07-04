@@ -15,6 +15,7 @@ print([[########################################################################
             #               ##   -Github Page:https://github.com/KienPC1234/Universal-Hub         #
             #######################################################################################]])
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/KienPC1234/Universal-Hub/main/Module/Rayfield.lua'))()
+getgenv().SecureMode = _G.SecureMode
 loadstring(game:HttpGet("https://raw.githubusercontent.com/KienPC1234/Universal-Hub/main/Module/ESP.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/KienPC1234/Universal-Hub/main/Module/Hitbox.lua"))()
 local loadstringTracersExists = pcall(function()
@@ -487,12 +488,12 @@ local ColorPicker55 = Tab3:CreateColorPicker({
     end,
  })
  local Button4 = Tab4:CreateButton({
-    Name = "Load Setting",
+    Name = "Save Setting",
     Callback = function()
         Rayfield:LoadConfiguration()
         Rayfield:Notify({
             Title = "INFO",
-            Content = "Data Loaded!",
+            Content = "Data Saved!",
             Duration = 6.5,
             Image = 18315824167,
          })
