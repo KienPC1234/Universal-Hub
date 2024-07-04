@@ -1,3 +1,6 @@
+if Rayfield then
+    Rayfield:Destroy()
+end
 print([[#######################################################################################
             #                                                                                     #
             #          ####  #####   ######   ########        ########   ######### ####   ####    #
@@ -62,34 +65,31 @@ function GetPlayerPath()
     end
 end
 GetPlayerPath()
-
 local Window = Rayfield:CreateWindow({
     Name = "Universal Hub",
     LoadingTitle = "Universal Hub",
     LoadingSubtitle = "by KCD Dev",
     ConfigurationSaving = {
        Enabled = true,
-       FolderName = "Save", 
+       FolderName = "UH_Save", 
        FileName = "Universal_HUB_Save"
     },
     Discord = {
         Enabled = false,
-        Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
-        RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+        Invite = "noinvitelink", 
+        RememberJoins = true 
      },
-     KeySystem = false, -- Set this to true to use our key system
+     KeySystem = false, 
      KeySettings = {
         Title = "Untitled",
         Subtitle = "Key System",
         Note = "No method of obtaining the key is provided",
-        FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
-        SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-        GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-        Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+        FileName = "Key", 
+        SaveKey = true, 
+        GrabKeyFromSite = false, 
+        Key = {"Hello"} 
      }
  })
-
-
 local Tab = Window:CreateTab("Hit Box", 18298162898)
 local Tab2 = Window:CreateTab("ESP", 18298164473)
 local Tab3 = Window:CreateTab("Aim Bot",18312822691)
@@ -487,13 +487,69 @@ local ColorPicker55 = Tab3:CreateColorPicker({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source",true))()
     end,
  })
- local Button4 = Tab4:CreateButton({
-    Name = "Save Setting",
-    Callback = function()
-        Rayfield:LoadConfiguration()
+ local Button6 = Tab4:CreateButton({
+    Name = "Save Current Setting",
+    Callback = function()        
+        pcall(function()
+            delfile("UH_Save\\Universal_HUB_Save.rfld")
+            wait(1)
+            delfile("UH_Save\\Universal_HUB_Save.rfld")
+            Rayfield:LoadConfiguration()
+            Rayfield:Notify({
+                Title = "INFO",
+                Content = "Saving...",
+                Duration = 5,
+                Image = 18315824167,
+             })  
+         end)      
+         wait(6)
         Rayfield:Notify({
             Title = "INFO",
-            Content = "Data Saved!",
+            Content = "Saved!",
+            Duration = 6.5,
+            Image = 18315824167,
+         })
+    end,
+ })
+ local Button4 = Tab4:CreateButton({
+    Name = "Load Current Setting",
+    Callback = function()  
+        pcall(function()
+            Rayfield:LoadConfiguration()
+            Rayfield:Notify({
+                Title = "INFO",
+                Content = "Loading...",
+                Duration = 5,
+                Image = 18315824167,
+             })     
+         end)      
+        wait(5)
+        Rayfield:Notify({
+            Title = "INFO",
+            Content = "Loaded!",
+            Duration = 6.5,
+            Image = 18315824167,
+         })         
+    end,
+ })
+ local Button5 = Tab4:CreateButton({
+    Name = "Delete Current Setting",
+    Callback = function()      
+        pcall(function()
+            delfile("UH_Save\\Universal_HUB_Save.rfld")
+            wait(1)
+            delfile("UH_Save\\Universal_HUB_Save.rfld")
+            Rayfield:Notify({
+            Title = "INFO",
+            Content = "Deleting...",
+            Duration = 5,
+            Image = 18315824167,
+         })
+        end) 
+        wait(4)
+        Rayfield:Notify({
+            Title = "INFO",
+            Content = "Deleted!",
             Duration = 6.5,
             Image = 18315824167,
          })
